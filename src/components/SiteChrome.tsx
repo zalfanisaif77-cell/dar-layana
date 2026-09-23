@@ -1,0 +1,7 @@
+import Link from 'next/link';
+
+export function Header(){return <header className="nav"><div className="container navin"><Link href="/" className="brand">DAR LAYANA<small>HAMMAMET · TUNISIA</small></Link><nav className="links"><Link href="/house">La maison</Link><Link href="/rooms">Chambres</Link><Link href="/experiences">Expériences</Link><Link href="/gallery">Galerie</Link><Link href="/contact">Contact</Link><Link className="btn" href="/booking">Réserver</Link></nav></div></header>}
+
+export function Footer(){return <footer className="footer"><div className="container footerGrid"><div><div className="brand" style={{color:'white'}}>DAR LAYANA<small>HAMMAMET · TUNISIA</small></div><p>Maison d’hôtes premium, moments privés et expériences personnalisées. Contenus, tarifs et coordonnées à valider avec le client.</p></div><div><h4>Découvrir</h4><p><Link href="/rooms">Chambres</Link><br/><Link href="/experiences">Expériences</Link><br/><Link href="/gallery">Galerie</Link></p></div><div><h4>Contact</h4><p>Hammamet, Tunisie<br/>Téléphone : à confirmer<br/>Email : à confirmer</p></div></div><div className="container footerBottom">© 2026 Dar Layana — Template V1</div></footer>}
+
+export function PageHero({kicker,title,text}:{kicker:string,title:string,text:string}){return <section className="pageHero"><div className="container"><div className="kicker">{kicker}</div><h1>{title}</h1><p className="lead">{text}</p></div></section>}
