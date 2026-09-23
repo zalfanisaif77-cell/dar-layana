@@ -1,4 +1,3 @@
-import Link from 'next/link';
-import {Header,Footer,PageHero} from '@/components/SiteChrome';
-const rooms=[['Suite Layana','/images/living-room.jpg','2 voyageurs','550 TND'],['Suite Piscine','/images/pool-day.jpg','2 voyageurs','650 TND'],['Villa entière','/images/pool-family.jpg','Capacité à confirmer','Sur demande']];
+import Link from 'next/link';import {Header,Footer,PageHero} from '@/components/SiteChrome';
+const rooms=[['Suite Layana','/images/living-room.svg','2 voyageurs','550 TND'],['Suite Piscine','/images/pool-day.svg','2 voyageurs','650 TND'],['Villa entière','/images/pool-family.svg','Capacité à confirmer','Sur demande']];
 export default function Page(){return <><Header/><PageHero kicker="Chambres" title="Des espaces pour ralentir." text="Tarifs et capacités affichés ici sont des exemples de travail à valider avec le client."/><section className="section"><div className="container grid3">{rooms.map(r=><article className="card" key={r[0]}><img src={r[1]} alt={r[0]}/><div className="cardBody"><h3>{r[0]}</h3><p className="muted">{r[2]} · Climatisation · Salle de bain privée · informations à confirmer</p><div className="price">{r[3]}</div><br/><Link className="btn" href="/booking">Vérifier la disponibilité</Link></div></article>)}</div></section><Footer/></>}
