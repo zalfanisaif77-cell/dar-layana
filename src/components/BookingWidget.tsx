@@ -2,21 +2,22 @@
 'use client';
 import {useState} from 'react';
 import {useRouter} from 'next/navigation';
+import {stayNights} from '@/lib/booking-pricing';
 export default function BookingWidget(){
-  const [arrival,setArrival]=useState(''),[departure,setDeparture]=useState(''),[guests,setGuests]=useState('2');
-  const [error,setError]=useState('');
-  const router=useRouter();
-  const today=new Date().toLocaleDateString('en-CA');
-  function go(){
-    if(arrival&&departure&&departure<=arrival){setError('Le départ doit être après l’arrivée.');return;}
-    const qs=new URLSearchParams({arrivee:arrival,depart:departure,voyageurs:guests});
-    router.push('/booking?'+qs.toString());
-  }
-  return <div className="container"><div className="bookingBar">
-    <div className="field"><label htmlFor="arrival">Arrivée</label><input id="arrival" type="date" min={today} value={arrival} onChange={e=>{setArrival(e.target.value);setError('')}}/></div>
-    <div className="field"><label htmlFor="departure">Départ</label><input id="departure" type="date" min={arrival||today} value={departure} onChange={e=>{setDeparture(e.target.value);setError('')}}/></div>
-    <div className="field"><label htmlFor="guests">Voyageurs</label><select id="guests" value={guests} onChange={e=>setGuests(e.target.value)}>{Array.from({length:12},(_,i)=><option key={i} value={i+1}>{i+1}</option>)}</select></div>
-    <button type="button" onClick={go} className="btn">Demander les disponibilités</button>
-    {error&&<p className="inlineError">{error}</p>}
-  </div></div>;
+ const router=useRouter(),[arrival,setArrival]=useState(''),[departure,setDeparture]=useState(''),[adults,setAdults]=useState(2),[children,setChildren]=useState(0),[error,setError]=useState('');
+ const today=new Date().toLocaleDateString('en-CA');
+ function submit(){
+  const nights=stayNights(arrival,departure);
+  if(!arrival||!departure||arrival<today||nights<2||nights>10){setError('Sélectionnez des dates futures pour un séjour de 2 à 10 nuits.');return;}
+  if(adults+children>10){setError('La capacité maximale annoncée est de 10 personnes, sous réserve de confirmation.');return;}
+  router.push('/booking?'+new URLSearchParams({arrivee:arrival,depart:departure,adultes:String(adults),enfants:String(children)}).toString());
+ }
+ return <div className="container"><div className="bookingBar propertyBookingBar">
+  <div className="field"><label htmlFor="widget-arrival">Arrivée</label><input id="widget-arrival" type="date" value={arrival} min={today} onChange={e=>{setArrival(e.target.value);setError('');}}/></div>
+  <div className="field"><label htmlFor="widget-departure">Départ</label><input id="widget-departure" type="date" value={departure} min={arrival||today} onChange={e=>{setDeparture(e.target.value);setError('');}}/></div>
+  <div className="field"><label htmlFor="widget-adults">Adultes</label><select id="widget-adults" value={adults} onChange={e=>setAdults(+e.target.value)}>{Array.from({length:10},(_,i)=><option key={i+1} value={i+1}>{i+1}</option>)}</select></div>
+  <div className="field"><label htmlFor="widget-children">Enfants</label><select id="widget-children" value={children} onChange={e=>setChildren(+e.target.value)}>{Array.from({length:10},(_,i)=><option key={i} value={i}>{i}</option>)}</select></div>
+  <button type="button" className="btn" onClick={submit}>Demander un séjour</button>
+  {error&&<p className="inlineError" role="alert">{error}</p>}
+  </div><p className="miniHint">Séjour de 2 à 10 nuits selon l’annonce publique. Disponibilité confirmée par l’établissement.</p></div>;
 }
