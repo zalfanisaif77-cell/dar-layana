@@ -23,3 +23,7 @@ Configurer ensuite Supabase avec les étapes de [SETUP.md](./SETUP.md).
 Version en développement : la base Supabase et l'administrateur doivent être créés. Pas encore de paiement, réservation instantanée, email transactionnel, synchronisation Booking/Airbnb, ou calendrier anti-double-réservation. Les photos externes sont des exemples d'ambiance, pas des photos certifiées Dar Layana. Aucun DNS ni site public n'a été modifié.
 
 Le site peut être déployé sur Vercel une fois la validation et les tests effectués.
+
+## Recherche documentaire
+Les informations factuelles, tarifs indicatifs et contradictions des sources sont détaillés dans [RESEARCH-DAR-LAYANA.md](./RESEARCH-DAR-LAYANA.md). 
+Le nouveau formulaire /booking est un parcours touristique en 3 étapes, incluant une estimation tarifaire **non contractuelle** et un contact direct via WhatsApp ou téléphone.

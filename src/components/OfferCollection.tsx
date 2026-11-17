@@ -20,6 +20,7 @@ export default function OfferCollection({kind}:{kind:'rooms'|'services'}){
       });
     return ()=>{active=false;};
   },[kind]);
+  if(!backendConfigured) return null;
   return <><div className="grid3 offerGrid">{items.map(item=><article className="card" key={item.id}>
     <img src={item.image_url||'/images/terrace.svg'} alt={'Illustration de '+item.name} loading="lazy"/>
     <div className="cardBody">
