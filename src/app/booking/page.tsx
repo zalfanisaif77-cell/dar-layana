@@ -1,11 +1,20 @@
 'use client';
-import {FormEvent,useState} from 'react';
+import {FormEvent,useEffect,useState} from 'react';
 import {Header,Footer,PageHero} from '@/components/SiteChrome';
 import {backendConfigured,getSupabase} from '@/lib/supabase';
 export default function Booking(){
  const [data,setData]=useState({guest_name:'',email:'',phone:'',offer_name:'Séjour à Dar Layana',arrival_date:'',departure_date:'',guests:2,message:''});
  const [status,setStatus]=useState(''),[sending,setSending]=useState(false);
  const set=(key:string,value:string|number)=>setData(v=>({...v,[key]:value}));
+ useEffect(()=>{
+  const q=new URLSearchParams(window.location.search);
+  const arriv=q.get('arrivee'), depart=q.get('depart'), guests=q.get('voyageurs'), offer=q.get('offre');
+  setData(v=>({...v,
+   arrival_date:arriv||v.arrival_date,departure_date:depart||v.departure_date,
+   guests:guests&&Number(guests)>0&&Number(guests)<=30?Number(guests):v.guests,
+   offer_name:offer||v.offer_name
+  }));
+ },[]);
  async function submit(e:FormEvent){e.preventDefault();setStatus('');
   const today=new Date().toLocaleDateString('en-CA');
   if((data.arrival_date&&!data.departure_date)||(!data.arrival_date&&data.departure_date)){setStatus('Indiquez les deux dates du séjour.');return;}
@@ -21,7 +30,7 @@ export default function Booking(){
  <div className="field"><label>Nom complet *</label><input required maxLength={120} autoComplete="name" value={data.guest_name} onChange={e=>set('guest_name',e.target.value)}/></div>
  <div className="field"><label>Email *</label><input type="email" required maxLength={200} autoComplete="email" value={data.email} onChange={e=>set('email',e.target.value)}/></div>
  <div className="field"><label>Téléphone *</label><input type="tel" required maxLength={40} autoComplete="tel" value={data.phone} onChange={e=>set('phone',e.target.value)}/></div>
- <div className="field"><label>Votre projet *</label><select value={data.offer_name} onChange={e=>set('offer_name',e.target.value)}><option>Séjour à Dar Layana</option><option>La table</option><option>Événement privé</option><option>Corporate</option></select></div>
+ <div className="field"><label>Votre projet *</label><select value={data.offer_name} onChange={e=>set('offer_name',e.target.value)}><option>Séjour à Dar Layana</option><option>La table</option><option>Événement privé</option><option>Corporate</option>{!['Séjour à Dar Layana','La table','Événement privé','Corporate'].includes(data.offer_name)&&<option>{data.offer_name}</option>}</select></div>
  <div className="field"><label>Arrivée (facultatif)</label><input type="date" value={data.arrival_date} onChange={e=>set('arrival_date',e.target.value)}/></div>
  <div className="field"><label>Départ (facultatif)</label><input type="date" value={data.departure_date} onChange={e=>set('departure_date',e.target.value)}/></div>
  <div className="field"><label>Participants</label><input type="number" min={1} max={30} value={data.guests} onChange={e=>set('guests',Number(e.target.value))}/></div>
