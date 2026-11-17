@@ -1,6 +1,6 @@
 {
-  "name": "dar-layana-template-v1",
-  "version": "0.1.0",
+  "name": "dar-layana-v2",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,8 @@
     "next": "^15.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "lucide-react": "^0.468.0"
+    "lucide-react": "^0.468.0",
+    "@supabase/supabase-js": "^2.58.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

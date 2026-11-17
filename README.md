@@ -1,46 +1,29 @@
-# Dar Layana — Website + Back Office Template V1
+# Dar Layana — Site + back-office V2
 
-Première version de démonstration du futur site direct-booking Dar Layana.
+Site Next.js/TypeScript pour présenter Dar Layana à Hammamet, promouvoir les séjours et événements et traiter les demandes clients.
 
-## Ce qui est inclus
-- Site public premium : Home, Maison, Chambres, Expériences, Galerie, Contact.
-- Prototype de réservation avec calcul du total et de l'acompte de 50%.
-- Back-office visuel accessible sur `/admin`.
-- Dashboard, réservations, calendrier, chambres, services, clients, paiements, messages, paramètres (plusieurs écrans sont encore des placeholders).
-- Design responsive.
-- Photos de démonstration extraites des captures sociales fournies par le client.
+## Pages
+- `/` : accueil et valeur des services
+- `/house` : identité et esprit de la maison
+- `/rooms` : catalogue des séjours
+- `/experiences` : table, détente et événements
+- `/gallery` : galerie de photos d'ambiance à remplacer par les photos officielles
+- `/booking` : formulaire de demande de réservation, **sans confirmation automatique**
+- `/contact` : contact
+- `/admin` : gestion sécurisée des demandes, messages, offres et photos
 
-## Important
-C'est un TEMPLATE. Il n'y a pas encore :
-- base de données réelle,
-- paiement réel,
-- authentification sécurisée,
-- email transactionnel,
-- synchronisation Booking/Airbnb,
-- vraie disponibilité.
-
-Mot de passe admin de démonstration : `demo123`
-
-## Lancer en local avec PowerShell
-```powershell
+## Installation
+```bash
 npm install
 npm run dev
 ```
+Configurer ensuite Supabase avec les étapes de [SETUP.md](./SETUP.md).
 
-Puis ouvrir : http://localhost:3000
+## Statut
+Version en développement : la base Supabase et l'administrateur doivent être créés. Pas encore de paiement, réservation instantanée, email transactionnel, synchronisation Booking/Airbnb, ou calendrier anti-double-réservation. Les photos externes sont des exemples d'ambiance, pas des photos certifiées Dar Layana. Aucun DNS ni site public n'a été modifié.
 
-Back-office : http://localhost:3000/admin
+Le site peut être déployé sur Vercel une fois la validation et les tests effectués.
 
-## Déploiement recommandé
-GitHub = dépôt du code.
-Pour mettre le site en ligne facilement avec Next.js, connecter le dépôt GitHub à Vercel. La future V2 avec base de données et paiement fonctionnera également mieux sur Vercel/Supabase que sur GitHub Pages.
-
-## Prochaines étapes après validation client
-1. Remplacer les placeholders par les vraies données.
-2. Ajouter Supabase PostgreSQL + Auth + Storage.
-3. Créer la vraie gestion chambres/services/prix.
-4. Construire le calendrier de disponibilité anti-double-réservation.
-5. Intégrer le paiement de 50%.
-6. Ajouter emails de confirmation.
-7. Ajouter FR / EN / AR.
-8. Sécuriser `/admin` et implémenter les rôles.
+## Recherche documentaire
+Les informations factuelles, tarifs indicatifs et contradictions des sources sont détaillés dans [RESEARCH-DAR-LAYANA.md](./RESEARCH-DAR-LAYANA.md). 
+Le nouveau formulaire /booking est un parcours touristique en 3 étapes, incluant une estimation tarifaire **non contractuelle** et un contact direct via WhatsApp ou téléphone.
