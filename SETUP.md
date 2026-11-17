@@ -31,3 +31,17 @@
 `npm install`
 `npm run dev`
 Pages : /, /rooms, /experiences, /gallery, /booking, /contact, /admin.
+
+## Demande client via WhatsApp
+
+La page de réservation contient trois étapes (dates, adultes/enfants avec âges, options de repas, coordonnées). L'estimation affiche des tarifs indicatifs issus de l'annonce Vilivio, jamais des disponibilités temps réel. Un bouton prépare une conversation WhatsApp vers le numéro public +216 58 405 413 ; l'existence d'un compte WhatsApp actif sur ce numéro doit être confirmée. Un bouton d'appel reste disponible. Si Supabase est connecté, un autre bouton enregistre la demande dans le back-office.
+
+Un événement spécial peut être proposé sans dates précises : les informations communiquées seront conservées dans le message. Les réservations ne sont jamais automatiquement confirmées.
+
+## Données à valider avant toute communication publique
+- Tarif officiel et saisons tarifaires après octobre 2026.
+- Conditions d'annulation et capacité réelle : les plateformes ne concordent pas.
+- Photographies originales des lieux, autorisations, et nom de la quatrième chambre.
+- Numéro WhatsApp actif : le numéro de téléphone peut être distinct du numéro WhatsApp.
+- Politique de confidentialité et durée de conservation des contacts.
+- Options de paiement et calendrier anti-double réservation pour un moteur de réservation instantané.

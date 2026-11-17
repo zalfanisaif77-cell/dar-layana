@@ -81,7 +81,7 @@ export default function Booking(){
   const {error}=await getSupabase()!.from('booking_requests').insert({
    guest_name:name.trim(),email:email.trim(),phone:phone.trim(),
    offer_name:kind==='sejour'?'Villa entière':'Événement sur devis',
-   arrival_date:arrival||null,departure_date:departure||null,
+   arrival_date:kind==='evenement'?null:(arrival||null),departure_date:kind==='evenement'?null:(departure||null),
    guests:adults+children,message:details,status:'pending'
   });
   setBusy(false);
