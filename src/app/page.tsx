@@ -1,5 +1,40 @@
+
 import Link from 'next/link';
 import {Header,Footer} from '@/components/SiteChrome';
 import BookingWidget from '@/components/BookingWidget';
-const rooms=[['Suite Layana','/images/living-room.svg','À partir de 550 TND / nuit'],['Suite Piscine','/images/pool-day.svg','À partir de 650 TND / nuit'],['Expérience Privée','/images/romantic-room.svg','Sur demande']];
-export default function Home(){return <><Header/><main><section className="hero"><div className="container heroContent"><div className="eyebrow">Luxury Guest House · Hammamet</div><h1>Votre parenthèse privée.</h1><p>Une maison chaleureuse pensée pour ralentir, profiter de la piscine, partager des moments intimes et composer un séjour à votre rythme.</p><div className="actions"><Link className="btn" href="/booking">Réserver votre séjour</Link><Link className="btn ghost" href="/house">Découvrir la maison</Link></div></div></section><BookingWidget/><section className="section"><div className="container grid2"><div><div className="kicker">Dar Layana</div><h2>Plus qu’un séjour, un lieu à vivre.</h2><p className="lead">Cette première version reprend l’univers visuel observé sur les réseaux Dar Layana : tons chauds, hospitalité privée, piscine, repas et moments personnalisés. Les textes et informations définitifs seront validés avec le client.</p><Link className="btn ghost" href="/house">L’histoire de Dar Layana</Link></div><img src="/images/dining.svg" alt="Dîner à Dar Layana" className="portrait"/></div></section><section className="section alt"><div className="container"><div className="kicker">Séjour</div><h2>Choisissez votre expérience</h2><div className="grid3">{rooms.map(r=><article className="card" key={r[0]}><img src={r[1]} alt={r[0]}/><div className="cardBody"><span className="pill">Template</span><h3>{r[0]}</h3><p className="muted">Capacité, équipements et détails à confirmer avec le propriétaire.</p><div className="price">{r[2]}</div></div></article>)}</div></div></section><section className="band"><div className="container grid3"><div><strong>50%</strong><p>Acompte prévu pour confirmer la réservation.</p></div><div><strong>100%</strong><p>Prix des services affichés séparément et sans all-inclusive automatique.</p></div><div><strong>3</strong><p>Langues prévues : français, anglais et arabe.</p></div></div></section><section className="section"><div className="container"><div className="kicker">Ambiance</div><h2>Quelques instants Dar Layana</h2><div className="gallery"><img src="/images/pool-family.svg" alt="Piscine"/><img src="/images/terrace.svg" alt="Terrasse"/><img src="/images/living-room.svg" alt="Salon"/><img src="/images/pool-day.svg" alt="Piscine en journée"/><img src="/images/romantic-room.svg" alt="Chambre romantique"/></div></div></section></main><Footer/></>}
+import OfferCollection from '@/components/OfferCollection';
+import {photos} from '@/lib/catalog';
+export default function Home(){return <><Header/><main>
+  <section className="hero" style={{backgroundImage:'url('+photos.pool+')'}}>
+    <div className="container heroContent"><div className="eyebrow">Maison de la Douceur · Hammamet</div>
+    <h1>Des instants qui restent.</h1>
+    <p>Dar Layana vous invite à ralentir, vous retrouver et célébrer ce qui compte, dans l’atmosphère chaleureuse d’une maison d’hôtes à Hammamet.</p>
+    <div className="actions"><Link className="btn" href="/booking">Imaginer mon séjour</Link><Link className="btn ghost" href="/experiences">Explorer les expériences</Link></div>
+    </div>
+  </section>
+  <div className="demoRibbon">Visuels d’ambiance illustratifs · photographies officielles à intégrer</div>
+  <BookingWidget/>
+  <section className="section"><div className="container grid2">
+    <div><div className="kicker">L’esprit Dar Layana</div><h2>Bien plus qu’une nuit.</h2>
+    <p className="lead">Un cadre privé pour profiter du temps ensemble. Une parenthèse de détente, un repas partagé, un événement qui vous ressemble : chaque occasion mérite une attention particulière.</p>
+    <p className="muted">Notre promesse : vous aider à imaginer un moment à votre rythme, en toute simplicité et avec des prestations clairement présentées.</p>
+    <Link className="textLink" href="/house">Découvrir l’esprit de la maison →</Link></div>
+    <img className="portrait" src={photos.lounge} alt="Photo d'ambiance d'un espace de vie élégant, illustrative" loading="lazy"/>
+  </div></section>
+  <section className="values"><div className="container grid3">
+    <div><span className="valueNumber">01</span><h3>Un cadre pour se retrouver</h3><p>Des moments ensemble loin de l’agitation quotidienne.</p></div>
+    <div><span className="valueNumber">02</span><h3>Des expériences à composer</h3><p>Séjour, table et événements à organiser selon vos envies.</p></div>
+    <div><span className="valueNumber">03</span><h3>Un contact humain</h3><p>Une demande personnalisée plutôt qu’une réservation impersonnelle.</p></div>
+  </div></section>
+  <section className="section alt"><div className="container">
+    <div className="sectionHead"><div><div className="kicker">Ce que nous proposons</div><h2>Un lieu, plusieurs façons de le vivre.</h2></div><Link href="/experiences" className="textLink">Toutes les expériences →</Link></div>
+    <OfferCollection kind="services"/>
+  </div></section>
+  <section className="section"><div className="container grid2">
+    <img src={photos.table} className="roundedImage" alt="Table gastronomique, photographie d'ambiance illustrative" loading="lazy"/>
+    <div><div className="kicker">Pour chaque occasion</div><h2>Des moments à votre image.</h2>
+    <p className="lead">Week-end en couple, retrouvailles en famille, dîner à thème ou événement privé : discutons ensemble du format qui convient à votre occasion.</p>
+    <Link className="btn" href="/booking?offre=Événement%20privé">Parlons de votre projet</Link></div>
+  </div></section>
+  <section className="band"><div className="container bandInner"><div><div className="eyebrow">Faites le premier pas</div><h2>Votre prochain souvenir commence ici.</h2><p>Décrivez votre projet et recevez une réponse sur les possibilités, les services et les tarifs.</p></div><Link className="btn light" href="/booking">Faire une demande</Link></div></section>
+</main><Footer/></>}
