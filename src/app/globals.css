@@ -36,3 +36,124 @@
 .adminBadge{display:inline-flex;background:#efe9df;border-radius:3px;padding:4px 8px;font-size:12px}
 button:disabled{opacity:.55;cursor:not-allowed}
 @media(max-width:600px){.adminForm{grid-template-columns:1fr}.adminForm .wide{grid-column:auto}.bookingLayout{gap:25px}}
+
+
+
+/* Dar Layana research-backed presentation */
+.factStrip{background:#f4ebe0;padding:35px 0 20px}
+.factStripInner{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.factStripInner>div{text-align:center;border-right:1px solid #ddcebf;padding:8px 10px}
+.factStripInner>div:last-child{border:0}
+.factStripInner strong{display:block;font:500 35px 'Playfair Display',Georgia,serif;color:var(--brown)}
+.factStripInner span{display:block;font-size:12px;color:#655a51;margin-top:6px}
+.miniHint{font-size:12px;line-height:1.7;color:#736a60}
+.factStrip>.miniHint{text-align:center;margin-bottom:0}
+.amenitiesGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.amenity{border:1px solid var(--line);background:var(--ivory);padding:26px 22px;border-radius:5px}
+.amenityEmoji{font-size:25px}
+.amenity h3{font:500 24px 'Playfair Display',Georgia,serif;margin:13px 0 5px}
+.amenity p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:0}
+.homeGallery img{width:100%;aspect-ratio:1.4;object-fit:cover;border-radius:5px}
+.galleryNote a,.miniHint a{text-decoration:underline;text-underline-offset:4px}
+.faqGrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.faqGrid details{background:#fff;padding:24px;border:1px solid var(--line);border-radius:5px;align-self:start}
+.faqGrid summary{font-weight:700;cursor:pointer}
+.faqGrid details p{color:var(--muted);line-height:1.7;margin-bottom:0}
+.roomGrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.roomFeature{display:grid;grid-template-columns:42% 58%;border:1px solid var(--line);background:white;border-radius:5px;overflow:hidden}
+.roomFeature img{height:100%;width:100%;min-height:280px;object-fit:cover}
+.roomFeature>div{padding:24px}
+.roomFeature h3{font:500 28px 'Playfair Display',serif;margin:10px 0 0}
+.roomSubtitle{font-weight:700;font-size:12px;color:var(--brown);margin:10px 0}
+.extrasList{margin:25px 0}
+.extraLine{display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid var(--line);padding:12px 0}
+.extraLine small{display:block;color:var(--muted);font-size:12px}
+.authenticPhotos{display:flex;justify-content:space-between;align-items:center;gap:40px;background:#f1e7dc;padding:36px;margin-bottom:55px;border-radius:5px}
+.authenticPhotos h2{margin-bottom:15px}
+.authenticPhotos p{max-width:550px}
+.galleryGrid figcaption span{color:var(--terracotta)}
+/* 3-step tourism request form */
+.bookingPage{background:#fbf8f2}
+.stepsNav{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+.stepTab{display:flex;align-items:center;gap:12px;color:#8a7f75;font-size:13px;padding:10px 0;border-bottom:2px solid #ddd0c4}
+.stepTab span{display:grid;place-items:center;border:1px solid #d0bfad;border-radius:50%;width:32px;height:32px;flex-shrink:0}
+.stepTab.current{color:var(--brown);border-color:var(--brown)}
+.stepTab.current span,.stepTab.passed span{background:var(--brown);color:white;border-color:var(--brown)}
+.bookingColumns{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(310px,.8fr);gap:25px;align-items:start}
+.bookingStepper>.panel{padding:35px}
+.formHeading{font-size:clamp(29px,3vw,39px);font-weight:500;margin:10px 0 26px}
+.bookingMode{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:25px}
+.bookingMode button{border:1px solid #e0d5c6;text-align:left;background:#faf7f2;padding:19px;border-radius:7px;color:var(--ink)}
+.bookingMode button.selected{border:2px solid var(--brown);background:#f7ece1}
+.bookingMode strong{display:block;font-size:15px;margin-bottom:6px}
+.bookingMode span{display:block;font-size:12px;line-height:1.5;color:var(--muted)}
+.bookingFields{margin:17px 0}
+.bookingFields .wide{grid-column:1/-1}
+.bookingFields input,.bookingFields select,.bookingFields textarea{width:100%}
+.guestCounters{display:grid;grid-template-columns:1fr 1fr;gap:15px;border-top:1px solid var(--line);margin-top:23px;padding-top:25px}
+.guestCounters>div{display:grid;gap:3px}
+.guestCounters strong{font-size:14px}
+.guestCounters small{font-size:12px;color:var(--muted)}
+.counter{margin-top:10px;display:flex;align-items:center;gap:15px}
+.counter button{border:1px solid #dccdbd;border-radius:5px;width:35px;height:35px;background:#fff;font-size:18px}
+.counter span{font-weight:700;min-width:20px;text-align:center}
+.childAges{margin:25px 0;padding-top:15px;border-top:1px solid var(--line)}
+.childAges .formGrid{margin-top:12px}
+.nextButton{margin-top:22px}
+.bookingActions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
+.mealChoices{display:grid;gap:12px}
+.mealChoice{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:17px;border-radius:5px;cursor:pointer}
+.mealChoice.chosen{border-color:var(--brown);background:#f9efe6}
+.mealChoice input{accent-color:var(--brown);width:17px;height:17px}
+.mealChoice>div{flex:1}
+.mealChoice strong{display:block}
+.mealChoice small{display:block;color:var(--muted)}
+.mealChoice>span{font-weight:700;color:var(--brown);white-space:nowrap}
+.bookingSummary{background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden;position:sticky;top:104px;box-shadow:0 15px 35px #391e0b0d}
+.summaryImage{position:relative}
+.summaryImage img{height:205px;width:100%;object-fit:cover}
+.summaryImage span{position:absolute;bottom:10px;right:10px;background:#211a16dd;color:white;padding:5px 8px;font-size:10px}
+.summaryInner{padding:25px}
+.summaryInner h3{font:500 26px 'Playfair Display',serif;margin:5px 0}
+.summaryRows{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:20px 0}
+.summaryRows>div,.estimate>div:not(.estimateHead){display:flex;justify-content:space-between;gap:10px;padding:8px 0;font-size:12px}
+.summaryRows span,.estimate span{color:var(--muted)}
+.summaryRows strong,.estimate strong{text-align:right}
+.estimateHead{font-weight:800;margin-bottom:12px}
+.estimateTotal{border-top:1px solid var(--line);font-size:16px!important;margin-top:12px;padding-top:15px!important}
+.whatsappButton{background:#176948;border-color:#176948}
+.whatsappButton:hover{background:#0e4b31}
+.consent{display:flex;align-items:start;gap:9px;font-size:12px;line-height:1.6;margin-top:12px}
+.consent input{margin-top:4px;accent-color:var(--brown)}
+.propertyBookingBar{grid-template-columns:1fr 1fr .65fr .65fr auto}
+@media(max-width:1100px){
+ .roomGrid{grid-template-columns:1fr}
+ .propertyBookingBar{grid-template-columns:1fr 1fr 1fr}
+ .propertyBookingBar button{grid-column:span 2}
+ .bookingColumns{grid-template-columns:1.25fr .85fr}
+}
+@media(max-width:850px){
+ .amenitiesGrid{grid-template-columns:1fr 1fr}
+ .factStripInner{grid-template-columns:1fr 1fr}
+ .factStripInner>div:nth-child(2){border-right:0}
+ .bookingColumns{grid-template-columns:1fr}
+ .bookingSummary{position:static}
+ .faqGrid{grid-template-columns:1fr}
+ .authenticPhotos{display:block}
+ .authenticPhotos .btn{margin-top:15px}
+ .roomFeature{grid-template-columns:1fr 1.4fr}
+}
+@media(max-width:550px){
+ .amenitiesGrid,.bookingMode,.stepsNav{grid-template-columns:1fr}
+ .propertyBookingBar,.guestCounters{grid-template-columns:1fr}
+ .propertyBookingBar button{grid-column:auto}
+ .bookingStepper>.panel{padding:19px}
+ .roomFeature{grid-template-columns:1fr}
+ .roomFeature img{min-height:0;aspect-ratio:3/2}
+ .factStripInner strong{font-size:26px}
+ .stepTab{padding:5px}
+ .stepsNav{gap:6px}
+ .stepTab:not(.current):not(.passed){display:none}
+ .mealChoice{padding:12px}
+ .bookingActions .btn{width:100%}
+}
